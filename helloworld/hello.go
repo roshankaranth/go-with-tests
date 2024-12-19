@@ -1,5 +1,6 @@
 package helloworld
 
+// name of package same as the directoey it is in
 const (
 	spanish = "Spanish"
 	french  = "French"
@@ -19,6 +20,7 @@ func Hello(lang, name string) string {
 	return greetingPrefix(lang) + name
 }
 
+// named returned type for better readability
 func greetingPrefix(lang string) (prefix string) {
 	switch lang {
 	case spanish:

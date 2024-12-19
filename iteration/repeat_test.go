@@ -20,6 +20,7 @@ func ExampleRepeat() {
 	//Output: aaaaa
 }
 
+// benchmarks tests the code for b.N time. The value of b.N is picked by the compiler to give some result and figure out the op/sec.
 func Benchmark(b *testing.B) {
 	for i := 0; i < b.N; i++ {
 		Repeat(10, "a")

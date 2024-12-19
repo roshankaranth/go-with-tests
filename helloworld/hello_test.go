@@ -2,6 +2,7 @@ package helloworld
 
 import "testing"
 
+// grouping subtests.
 func TestHello(t *testing.T) {
 	t.Run("saying hello to people", func(t *testing.T) {
 		got := Hello("", "Roshan")
@@ -41,6 +42,8 @@ func TestHello(t *testing.T) {
 
 func assertCorrectMessage(t testing.TB, got, want string) {
 	t.Helper()
+	//tells the compiler it is a helper function, so if a error occurs in this function, in the stack trace of error message it points to the line
+	//which calls this function. Otherwise it would have pointed inside this function.
 	if got != want {
 		t.Errorf("got %q want %q", got, want)
 	}

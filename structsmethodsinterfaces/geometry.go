@@ -2,29 +2,39 @@ package structsmethodsinterfaces
 
 import "math"
 
+type Shape interface {
+	Area() float64
+}
+
+// interfaces allow parametric polymorphism
 type Rectangle struct {
 	Width  float64
 	Height float64
 }
 
-func (r Rectangle) Area() float64 {
-	return 2 * (r.Height + r.Width)
+type Triangle struct {
+	Height float64
+	Base   float64
 }
 
 type Circle struct {
 	Radius float64
 }
 
+func (r Rectangle) Area() float64 {
+	return r.Height * r.Width
+}
+
 func (c Circle) Area() float64 {
 	return c.Radius * c.Radius * math.Pi
 }
 
-func Perimeter(rectangle Rectangle) float64 {
-	return 2 * (rectangle.Width + rectangle.Height)
+func (t Triangle) Area() float64 {
+	return 0.5 * t.Height * t.Base
 }
 
-func Area(rectangle Rectangle) float64 {
-	return rectangle.Width * rectangle.Height
+func Perimeter(rectangle Rectangle) float64 {
+	return 2 * (rectangle.Width + rectangle.Height)
 }
 
 //no function overloading in go

@@ -50,6 +50,7 @@ func assertError(t testing.TB, err error, want error) {
 	if err == nil {
 		t.Fatal("wanted an error but didn't get one!")
 		//stops the test if called so that further condition isin't run
+		//We expect an error, but aren't getting one.
 	}
 	//err.Error() return string value of message
 	if err != want {
@@ -64,3 +65,5 @@ func assertNoError(t testing.TB, got error) {
 		t.Fatal("got an error but didn't want one")
 	}
 }
+
+//withdraw function return nil if there is no error.

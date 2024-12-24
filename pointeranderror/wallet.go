@@ -5,6 +5,7 @@ import (
 	"fmt"
 )
 
+// creating our own type
 type Bitcoin float64
 
 type Wallet struct {
@@ -18,11 +19,11 @@ type Stringer interface {
 //interface defined in the fmt package and lets you define how your type is printed
 //when used with %s format string in prints
 
+var ErrInsufficientFunds = errors.New("cannot withdraw, insufficient funds")
+
 func (w *Wallet) Deposit(amount Bitcoin) {
 	w.balance += amount
 }
-
-var ErrInsufficientFunds = errors.New("cannot withdraw, insufficient funds")
 
 // var allows declaring global values
 func (w *Wallet) Withdraw(amount Bitcoin) error {

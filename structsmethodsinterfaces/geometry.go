@@ -2,11 +2,11 @@ package structsmethodsinterfaces
 
 import "math"
 
+// interfaces allow parametric polymorphism
 type Shape interface {
 	Area() float64
 }
 
-// interfaces allow parametric polymorphism
 type Rectangle struct {
 	Width  float64
 	Height float64
@@ -37,4 +37,5 @@ func Perimeter(rectangle Rectangle) float64 {
 	return 2 * (rectangle.Width + rectangle.Height)
 }
 
-//no function overloading in go
+//no function overloading in go. Interface is implemented automatically
+//by structures. Implicit implementation.

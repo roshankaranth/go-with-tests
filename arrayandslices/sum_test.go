@@ -21,14 +21,6 @@ func TestSum(t *testing.T) {
 
 func TestSumAllTails(t *testing.T) {
 
-	checkSums := func(t testing.TB, got, want []int) {
-		t.Helper()
-		//DeepEqual is not type safe
-		if !reflect.DeepEqual(got, want) {
-			t.Errorf("got %v, want %v", got, want)
-		}
-	}
-
 	t.Run("make the sums of some slices", func(t *testing.T) {
 		num1 := []int{1, 2, 3, 4, 5, 6}
 		num2 := []int{7, 8, 9}
@@ -53,5 +45,13 @@ func assertCorrectMessage(t testing.TB, got, want int, numbers []int) {
 
 	if got != want {
 		t.Errorf("got %d, want %d, given %v", got, want, numbers)
+	}
+}
+
+func checkSums(t testing.TB, got, want []int) {
+	t.Helper()
+	//DeepEqual is not type safe. checks if both are equal or not.
+	if !reflect.DeepEqual(got, want) {
+		t.Errorf("got %v, want %v", got, want)
 	}
 }

@@ -14,6 +14,7 @@ func TestAdder(t *testing.T) {
 	}
 }
 
+// this testcase is added in the documentation
 func ExampleAdd() {
 	sum := Add(1, 5)
 	fmt.Println(sum)

@@ -1,4 +1,4 @@
-package dependencyinjection
+package main
 
 import (
 	"fmt"
@@ -27,4 +27,5 @@ func main() {
 }
 
 //in this example the output stream was the dependency, where the greet function could only greet to stdout
-// we decided to inject dependecy, throght parameters into the function.
+// we decided to inject dependecy, through parameters into the function. As we are passing interface to Fprintf, we can change dependecy to any other
+// type until and unless it implements that interface.

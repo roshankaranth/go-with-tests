@@ -18,3 +18,5 @@ func TestGreet(t *testing.T) {
 		t.Errorf("got %q want %q", got, want)
 	}
 }
+
+//in this case buffer is the mock, we are using to test if the right thing is being printed.

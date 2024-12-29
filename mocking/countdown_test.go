@@ -7,6 +7,10 @@ import (
 	"time"
 )
 
+//there are two things to test
+//1.if the right thing is being tested.
+//2.if the write and sleep are in the right order.
+
 func TestCountdown(t *testing.T) {
 	t.Run("print 3 to GO!", func(t *testing.T) {
 		buffer := &bytes.Buffer{}
@@ -43,6 +47,7 @@ GO!`
 			t.Errorf("wanted calles %v, got %v", want, spySleeperPrinter.Calls)
 		}
 	})
+
 }
 
 func TestConfigurableSpeaker(t *testing.T) {
@@ -51,7 +56,7 @@ func TestConfigurableSpeaker(t *testing.T) {
 	spyTime := &SpyTime{}
 	sleeper := ConfigurableSleeper{sleepTime, spyTime.Sleep}
 	sleeper.Sleep()
-
+	//overhere we are passing in the sleep method of the spytime struct, which is called when sleeper.Sleep() is called.
 	if spyTime.durationSlept != sleepTime {
 		t.Errorf("should have slept for %v but slept for %v", sleepTime, spyTime.durationSlept)
 	}
